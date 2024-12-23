@@ -1,0 +1,45 @@
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+  color: #333;
+}
+
+.demo-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+p {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+h2 {
+  font-size: 1.3rem;
+  color: #2c3e50;
+  margin: 0 0 1rem 0;
+}
+
+@media (max-width: 768px) {
+  .demo-wrapper {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+}

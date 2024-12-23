@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🎨 AutoFilter Example</title>
+    <link rel="stylesheet" href="./src/autofilter.css" />
+    <link rel="stylesheet" href="demo.css" />
+  </head>
+  <body>
+    <div class="demo-wrapper">
+      <h1>🎨 AutoFilter Demo</h1>
+      <p>Click buttons or type to filter items with smooth animations!</p>
+
+      <div class="af-controls">
+        <div class="af-filter-group">
+          <h2>Filter by Category</h2>
+          <button class="af-button af-button--active" data-filter="">
+            All
+          </button>
+          <button class="af-button" data-filter="red">Red</button>
+          <button class="af-button" data-filter="blue">Blue</button>
+          <button class="af-button" data-filter="green">Green</button>
+        </div>
+
+        <div class="af-filter-group">
+          <h2>Search Items</h2>
+          <input
+            type="text"
+            class="af-input"
+            data-filter
+            placeholder="Type to filter..."
+          />
+        </div>
+      </div>
+
+      <div class="af-container">
+        <div class="af-item" data-tags="red">
+          <div class="af-item__content">
+            <span class="af-item__emoji">🍎</span>
+            <h3>Red Apple</h3>
+          </div>
+        </div>
+        <div class="af-item" data-tags="blue">
+          <div class="af-item__content">
+            <span class="af-item__emoji">🔵</span>
+            <h3>Blue Circle</h3>
+          </div>
+        </div>
+        <div class="af-item" data-tags="red,blue">
+          <div class="af-item__content">
+            <span class="af-item__emoji">🎨</span>
+            <h3>Red & Blue Art</h3>
+          </div>
+        </div>
+        <div class="af-item" data-tags="red">
+          <div class="af-item__content">
+            <span class="af-item__emoji">🚗</span>
+            <h3>Red Car</h3>
+          </div>
+        </div>
+        <div class="af-item" data-tags="blue">
+          <div class="af-item__content">
+            <span class="af-item__emoji">🌊</span>
+            <h3>Blue Ocean</h3>
+          </div>
+        </div>
+        <div class="af-item" data-tags="green">
+          <div class="af-item__content">
+            <span class="af-item__emoji">🍀</span>
+            <h3>Green Clover</h3>
+          </div>
+        </div>
+        <div class="af-item" data-tags="green">
+          <div class="af-item__content">
+            <span class="af-item__emoji">🥦</span>
+            <h3>Broccoli</h3>
+          </div>
+        </div>
+        <div class="af-item" data-tags="blue,green">
+          <div class="af-item__content">
+            <span class="af-item__emoji">🦚</span>
+            <h3>Peacock</h3>
+          </div>
+        </div>
+        <div class="af-item" data-tags="red,green">
+          <div class="af-item__content">
+            <span class="af-item__emoji">🎄</span>
+            <h3>Christmas Tree</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./src/autofilter.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const filter = new AutoFilter({
+          filterSelector: "[data-filter]",
+          targetSelector: ".af-item",
+          activeButtonClass: "af-button--active",
+          minChars: 2,
+          caseSensitive: false,
+          subString: true,
+          urlSearchParam: "filter",
+          animation: {
+            duration: 400,
+            easing: "cubic-bezier(0.4, 0, 0.2, 1)",
+          },
+          layout: {
+            gutter: 20,
+            columnsBreakpoints: {
+              1200: 3,
+              768: 2,
+              0: 1,
+            },
+          },
+          debounceDelay: 100,
+        });
+      });
+    </script>
+  </body>
+</html>

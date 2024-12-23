@@ -1,0 +1,148 @@
+/**
+ * AutoFilter Core Styles
+ * Prefix: af-
+ */
+
+/* Container */
+.af-container {
+  position: relative;
+  width: 100%;
+  min-height: 100px;
+  margin: 0 auto;
+}
+
+/* Controls */
+.af-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.af-filter-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.af-filter-group h2 {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+/* Buttons */
+.af-button {
+  padding: 0.75rem 1.5rem;
+  border: 2px solid #4caf50;
+  border-radius: 6px;
+  background: transparent;
+  color: #4caf50;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.af-button:hover {
+  background: #4caf50;
+  color: white;
+}
+
+.af-button--active {
+  background: #4caf50;
+  color: white;
+}
+
+/* Input */
+.af-input {
+  padding: 0.75rem 1.5rem;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  min-width: 250px;
+  transition: border-color 0.3s ease;
+}
+
+.af-input:focus {
+  outline: none;
+  border-color: #4caf50;
+}
+
+/* Items */
+.af-item {
+  position: absolute;
+  padding: 10px;
+  width: calc(33.333% - 20px);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 1;
+  transform: scale(1);
+  will-change: transform, opacity;
+}
+
+.af-item__content {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+
+.af-item:hover .af-item__content {
+  transform: translateY(-5px);
+}
+
+.af-item__emoji {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.af-item__content h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+/* Hide state */
+.af-item.af-hidden {
+  opacity: 0;
+  transform: scale(0.8);
+  pointer-events: none;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 1200px) {
+  .af-item {
+    width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 768px) {
+  .af-item {
+    width: calc(100% - 20px);
+  }
+
+  .af-controls {
+    gap: 1rem;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .af-item {
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .af-item__content {
+    transform: none;
+  }
+
+  .af-item:hover .af-item__content {
+    transform: none;
+  }
+}
